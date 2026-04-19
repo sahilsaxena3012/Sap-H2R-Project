@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP HR H2R Frontend</title>
+    <link rel="stylesheet" href="h2r_styles.css">
+</head>
+
+<body>
+    <header class="topbar" id="top">
+        <div class="brand">
+            <span class="brand-kicker">SAP HR / HCM</span>
+            <h1>Hire-to-Retire (H2R)</h1>
+            <p>Frontend summary of the provided project documentation</p>
+        </div>
+        <nav class="navbar">
+            <a href="#overview">Overview</a>
+            <a href="#concepts">Concepts</a>
+            <a href="#lifecycle">Lifecycle</a>
+            <a href="#codes">T-Codes</a>
+            <a href="#stack">Stack</a>
+        </nav>
+    </header>
+
+    <main class="page-shell">
+        <section class="hero section" id="overview">
+            <div class="hero-copy card">
+                <p class="eyebrow">Project Overview</p>
+                <h2>End-to-End Employee Lifecycle Management in SAP HR</h2>
+                <p>
+                    This page implements the core topics from the SAP Human Resources / HCM project report.
+                    It explains how SAP supports the full employee journey, from hiring and organizational
+                    assignment to payroll, appraisal, and separation.
+                </p>
+                <div class="hero-metrics">
+                    <div>
+                        <strong>7</strong>
+                        <span>Lifecycle stages</span>
+                    </div>
+                    <div>
+                        <strong>8</strong>
+                        <span>Key transaction codes</span>
+                    </div>
+                    <div>
+                        <strong>5</strong>
+                        <span>Platform components</span>
+                    </div>
+                </div>
+            </div>
+            <aside class="hero-panel card">
+                <p class="eyebrow">Problem Statement</p>
+                <ul class="bullet-list">
+                    <li>No central employee data repository.</li>
+                    <li>Mismatch between org structure and employee assignments.</li>
+                    <li>Manual payroll and compliance risks.</li>
+                    <li>Disconnected onboarding, leave, and offboarding flows.</li>
+                    <li>Weak integration across HR, Finance, and Controlling.</li>
+                </ul>
+                <p class="solution-note">
+                    SAP HR solves this by integrating Personnel Administration, Organizational Management,
+                    Time Management, Payroll, and Personnel Development into one auditable platform.
+                </p>
+            </aside>
+        </section>
+
+        <section class="section" id="concepts">
+            <div class="section-heading">
+                <p class="eyebrow">Foundations</p>
+                <h2>Key Concepts and Terminology</h2>
+            </div>
+            <div class="concept-grid">
+                <article class="card concept-card">
+                    <h3>Infotype</h3>
+                    <p>The fundamental HR data unit in SAP with date-stamped historical records.</p>
+                </article>
+                <article class="card concept-card">
+                    <h3>Personnel Action</h3>
+                    <p>A guided infotype sequence for events such as hiring, transfer, promotion, or leaving.</p>
+                </article>
+                <article class="card concept-card">
+                    <h3>Organizational Unit</h3>
+                    <p>A department or team node that structures the enterprise hierarchy.</p>
+                </article>
+                <article class="card concept-card">
+                    <h3>Position</h3>
+                    <p>A specific role in the organization connected to a job and cost center.</p>
+                </article>
+                <article class="card concept-card">
+                    <h3>Payroll Area</h3>
+                    <p>A grouping that determines payroll frequency and payroll run processing.</p>
+                </article>
+                <article class="card concept-card">
+                    <h3>Wage Type</h3>
+                    <p>An individual salary or deduction component such as basic pay, PF, or TDS.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="lifecycle">
+            <div class="section-heading">
+                <p class="eyebrow">Employee Journey</p>
+                <h2>Hire-to-Retire Lifecycle</h2>
+            </div>
+
+            <div class="lifecycle-controls">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="core">Core HR</button>
+                <button class="filter-btn" data-filter="operations">Operations</button>
+                <button class="filter-btn" data-filter="closeout">Closeout</button>
+            </div>
+
+            <div class="timeline">
+                <article class="card timeline-card" data-group="core">
+                    <div class="timeline-top">
+                        <span class="step">01</span>
+                        <div>
+                            <p class="tcode">PA40</p>
+                            <h3>Hiring</h3>
+                        </div>
+                    </div>
+                    <p>Launch the hiring action, assign a personnel number, and capture mandatory onboarding infotypes.
+                    </p>
+                </article>
+
+                <article class="card timeline-card" data-group="core">
+                    <div class="timeline-top">
+                        <span class="step">02</span>
+                        <div>
+                            <p class="tcode">PPOME</p>
+                            <h3>Organizational Structure</h3>
+                        </div>
+                    </div>
+                    <p>Build and maintain organizational units, positions, jobs, reporting lines, and cost center links.
+                    </p>
+                </article>
+
+                <article class="card timeline-card" data-group="core">
+                    <div class="timeline-top">
+                        <span class="step">03</span>
+                        <div>
+                            <p class="tcode">PA30</p>
+                            <h3>Employee Master Data</h3>
+                        </div>
+                    </div>
+                    <p>Maintain personal, organizational, and payroll-related infotypes with full historical accuracy.
+                    </p>
+                </article>
+
+                <article class="card timeline-card" data-group="operations">
+                    <div class="timeline-top">
+                        <span class="step">04</span>
+                        <div>
+                            <p class="tcode">PA61 / PT60</p>
+                            <h3>Time and Attendance</h3>
+                        </div>
+                    </div>
+                    <p>Record absences, overtime, and planned working time, then evaluate them for payroll readiness.
+                    </p>
+                </article>
+
+                <article class="card timeline-card" data-group="operations">
+                    <div class="timeline-top">
+                        <span class="step">05</span>
+                        <div>
+                            <p class="tcode">PC00</p>
+                            <h3>Payroll Processing</h3>
+                        </div>
+                    </div>
+                    <p>Run payroll by area and period, compute deductions, and post results to Finance and Controlling.
+                    </p>
+                </article>
+
+                <article class="card timeline-card" data-group="operations">
+                    <div class="timeline-top">
+                        <span class="step">06</span>
+                        <div>
+                            <p class="tcode">PHAP_CREATE</p>
+                            <h3>Performance Appraisals</h3>
+                        </div>
+                    </div>
+                    <p>Create appraisal documents, capture goals and KPI ratings, and support compensation decisions.
+                    </p>
+                </article>
+
+                <article class="card timeline-card" data-group="closeout">
+                    <div class="timeline-top">
+                        <span class="step">07</span>
+                        <div>
+                            <p class="tcode">PA40 Leaving</p>
+                            <h3>Separation</h3>
+                        </div>
+                    </div>
+                    <p>Trigger the leaving action, stop payroll participation, end-date assignments, and archive
+                        records.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="codes">
+            <div class="section-heading">
+                <p class="eyebrow">Execution Layer</p>
+                <h2>Transaction Codes Covered</h2>
+            </div>
+            <div class="code-grid">
+                <button class="card code-card" data-title="PA40"
+                    data-desc="Personnel Actions used for hiring and employee separation actions.">
+                    <span>PA40</span>
+                    <strong>Personnel Actions</strong>
+                </button>
+                <button class="card code-card" data-title="PA30"
+                    data-desc="Maintain HR master data and update employee infotypes over time.">
+                    <span>PA30</span>
+                    <strong>HR Master Data</strong>
+                </button>
+                <button class="card code-card" data-title="PPOME"
+                    data-desc="Manage organizational plans, positions, jobs, and hierarchy assignments.">
+                    <span>PPOME</span>
+                    <strong>Organizational Management</strong>
+                </button>
+                <button class="card code-card" data-title="PA61"
+                    data-desc="Enter time data such as leave and attendance-related records.">
+                    <span>PA61</span>
+                    <strong>Time Data</strong>
+                </button>
+                <button class="card code-card" data-title="PT60"
+                    data-desc="Run time evaluation so time entries feed correctly into payroll.">
+                    <span>PT60</span>
+                    <strong>Time Evaluation</strong>
+                </button>
+                <button class="card code-card" data-title="PC00"
+                    data-desc="Execute payroll processing and review the payroll log for errors or success.">
+                    <span>PC00</span>
+                    <strong>Payroll Run</strong>
+                </button>
+                <button class="card code-card" data-title="PHAP_CREATE"
+                    data-desc="Create performance appraisal documents with goals, KPI ratings, and review periods.">
+                    <span>PHAP_CREATE</span>
+                    <strong>Appraisal Documents</strong>
+                </button>
+                <button class="card code-card" data-title="PA20"
+                    data-desc="Display employee master data in read-only mode for reference and review.">
+                    <span>PA20</span>
+                    <strong>Display HR Data</strong>
+                </button>
+            </div>
+        </section>
+
+        <section class="section split-section" id="stack">
+            <div class="card">
+                <div class="section-heading compact">
+                    <p class="eyebrow">Platform</p>
+                    <h2>Technology Stack</h2>
+                </div>
+                <ul class="bullet-list">
+                    <li>SAP ECC 6.0 / SAP S/4HANA 2021</li>
+                    <li>SAP GUI 7.70</li>
+                    <li>SAP NetWeaver Application Server (ABAP stack)</li>
+                    <li>SAP HANA Database</li>
+                    <li>SAP Solution Manager across DEV to QAS to PRD</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="section-heading compact">
+                    <p class="eyebrow">Highlights</p>
+                    <h2>Unique Points</h2>
+                </div>
+                <ul class="bullet-list">
+                    <li>True end-to-end integration across the entire lifecycle.</li>
+                    <li>Infotype-based historical architecture with full auditability.</li>
+                    <li>Date-effective change management for future-dated HR updates.</li>
+                    <li>Automatic payroll-to-finance posting.</li>
+                    <li>Support for India-specific compliance like PF, ESI, PT, and TDS.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="card takeaway-card">
+                <p class="eyebrow">Conclusion</p>
+                <h2>Why This Matters</h2>
+                <p>
+                    The H2R process in SAP HR gives organizations a unified source of truth for workforce data
+                    while keeping payroll, time, appraisal, and organizational structures connected. The result
+                    is better compliance, cleaner reporting, and far less manual effort across the employee lifecycle.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Back to top">↑</button>
+
+    <div class="modal hidden" id="codeModal" aria-hidden="true">
+        <div class="modal-card">
+            <button class="modal-close" id="closeModal" aria-label="Close details">×</button>
+            <p class="eyebrow">Transaction Detail</p>
+            <h3 id="modalTitle"></h3>
+            <p id="modalDesc"></p>
+        </div>
+    </div>
+
+    <script src="h2r_script.js"></script>
+</body>
+
+</html>
